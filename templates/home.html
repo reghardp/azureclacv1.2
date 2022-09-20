@@ -1,0 +1,69 @@
+<!doctype html >
+<html style="background-color:#FFFFFF;" text-align:center;>
+<head>
+    <!-- <link rel="icon" type="image/x-icon" src="https://autopricing.blob.core.windows.net/static-files/dd-logo.svg">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.svg') }}" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #69be28;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+    }
+    
+    /* Safari */
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    </style>
+</head>
+<body>
+<title style="text-align:center;">Quote Calculator</title>
+<div style="display:flex; justify-content: center">
+    <img src="https://autopricing.blob.core.windows.net/static-files/dd-logo.svg" alt="Mountain" align="center" width="200px" />
+</div> 
+<h1 style="color:black; text-align:center; font-family:arial; margin-top: 0px;" >Quote Calculator</h1>
+<form action="" method=post>
+<p style="color:black; text-align:center; font-family:arial;">
+    <input type=hidden name="btn_identifier" value="download_template">
+    <input type=submit value="Download Template"  style="font-family:arial;">
+</form>
+<form action="" method=post enctype=multipart/form-data>
+<p style="color:black; text-align:center; font-family:arial;"><input type=file name=file>
+    <input type=hidden name="btn_identifier" value="upload_template">
+    <input type=submit value="Upload Template"  style="font-family:arial;">
+    
+</form>
+
+<!-- <div style="text-align:center;">     {% if uploaded == 1 and download_ready == 0 %}
+<div class="loader"></div>
+
+        {% endif %}
+</div>
+        <p>{{ uploaded }}</p>
+        <p>{{ download_ready }}</p>
+ -->
+
+<div style="text-align:center;">     {% if uploaded == 1 and download_ready == 1 %}
+    <form action="" method=post>
+        <p style="color:black; text-align:center; font-family:arial;">
+            <input type=hidden name="btn_identifier" value="download_output">
+            <input type=submit value="Download Output"  style="font-family:arial;">
+    </form>
+
+            {% endif %}
+            <!-- <p>{{uploaded}}</p>
+            <p>{{download_ready}}</p> -->
+    </div>
+</body>
+</html> 
